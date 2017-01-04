@@ -1,0 +1,268 @@
+<html>
+<head>
+ <title>Искать половинку</title>
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ <meta name="viewport" content="width=device-width; initial-scale=1">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <?$META_DESCRIPTION$?>
+<?$META_KEYWORDS$?>
+
+ <link type="text/css" rel="StyleSheet" href="my.css" />
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/css/bootstrap-slider.min.css" rel="stylesheet">
+ <!--[if lt IE 9]>
+ <script type="text/javascript">
+ var e = ("header,footer,article,aside,section,nav").split(',');
+ for (var i = 0; i < e.length; i++) {
+ document.createElement(e[i]);
+ }
+ </script>
+ <![endif]-->
+</head>
+
+<body class="base">
+<script>
+ $(document).ready(function(){
+ $('nav').find('li').has('ul').addClass('has-submenu');
+ $('#show-menu').click(function() {
+ $('nav').toggleClass('nav-opened');
+ });
+
+ $('a#logo-lnk').click(function (e) {
+ if ($('span', this).hasClass('uz-signs')) {
+ e.preventDefault()
+ }
+});
+ })
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/bootstrap-slider.min.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
+
+
+<div class="container clearfix">
+ $GLOBAL_AHEADER$
+
+ <!-- <middle> -->
+<?if($URI_ID$="page1")?>
+ <div id="uncheader" class="$UHEADER_CLASS$" <?if(!$UHEADER_USED$)?>style="background: url('/.s/t/1254/1.png');"<?endif?>>
+ <div id="uCozHeaderMain" style="height: 325px; background: url('<?if($UHEADER_USED$)?>/uCozHeader.png<?else?>/.s/t/1254/1.png<?endif?>') no-repeat 50% 50%; width: 100%; margin: 0px auto;">
+ <div class="uCozIntroText">
+ <h1>Lorem ipsum dolor sit amet</h1>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+ </div>
+ </div>
+ </div>
+ <?endif?>
+ <div class="content-wrap clearfix <?if($HIDE_CLEFTER$)?>wide-page<?endif?>">
+
+ <section>
+ <div class="content">
+ <!-- <body> --><a href="$HOME_PAGE_LINK$"><!--<s5176>-->Главная<!--</s>--></a> &raquo; <a href="$MODULE_URL$"><!--<s5169>-->Фотоальбом<!--</s>--></a> &raquo; $SECTION_NAME$ <hr />
+<?if($SECTION_DESCR$)?><div style="text-align:center;">$SECTION_DESCR$</div><hr /><?endif?>
+<table border="0" width="100%" cellspacing="1" cellpadding="2">
+<tr><td width="50%" style="white-space: nowrap;"><?if($NUM_ENTRIES$)?><!--<s5226>-->Фотографий в разделе<!--</s>-->: <b>$NUM_ENTRIES$</b><?endif?></td><td align="right"><?if($PAGE_SELECTOR$)?><!--<s3015>-->Страницы<!--</s>-->: $PAGE_SELECTOR$<?endif?></td></tr>
+<tr><td colspan="2" align="center"></td></tr>
+<tr><td colspan="2" align="center">$PAGE_SELECTOR1$</td></tr>
+</table>
+<table style="width:100%">
+   <tr>
+   <td class="searchform" style="width:25%;background-color:rgba(111,111,222,0.3);padding:5px;border-radius:15px;display: inline-block;" >
+      <style>
+      .loader {
+         border: 5px solid #f3f3f3; /* Light grey */
+         border-top: 5px solid #3498db; /* Blue */
+         border-radius: 50%;
+         width: 50px;
+         margin-left: 25px;
+         height: 50px;
+         animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+         0% { transform: rotate(0deg); }
+         100% { transform: rotate(360deg); }
+      }
+      .slider.slider-horizontal {
+         width: 95%;
+         margin-left: 5px;
+      }
+      </style>
+      <div class="form-group">
+         <label for="name">Имя:</label>
+         <input type="email" class="form-control" id="name" placeholder="...">
+      </div>
+      <div class="form-group">
+         <label for="floor">Пол:</label>
+         <select id="floor" class="form-control">
+           <option>Мужской</option>
+           <option>Женский</option>
+         </select>
+      </div>
+      <div class="form-group">
+         <label for="placelivingCountry">Место проживания страна:</label>
+         <input type="email" class="form-control" id="placelivingCountry" placeholder="Украина">
+     </div>
+     <div class="form-group">
+       <label for="placelivingCity">Место проживания населенный пункт:</label>
+       <input type="email" class="form-control" id="placelivingCity" placeholder="Kиев">
+     </div>
+     <div class="form-group">
+        <label for="age">Возраст:</label>
+        <input id="age" type="text" class="span2" value="" data-slider-min="10" data-slider-max="90" data-slider-step="2" data-slider-value="[10,90]"/>
+     </div>
+     <div class="form-group">
+        <label for="familyposition">Cемейное положение :</label>
+        <select id="familyposition" class="form-control">
+            <option>не важно</option>
+            <option>не женат(не замужем)</option>
+            <option>женат(замужем)</option>
+            <option>разведен(разведена)</option>
+            <option>вдовец(вдова)</option>
+        </select>
+     </div>
+     <div class="form-group">
+        <label for="children">Дети :</label>
+        <select id="children" class="form-control">
+            <option>не важно</option>
+            <option>есть</option>
+            <option>нет</option>
+        </select>
+     </div>
+     <div class="form-group">
+        <label for="smoking">Oтношение к  курению  :</label>
+        <select id="smoking" class="form-control">
+            <option>не важно</option>
+            <option>не курит</option>
+            <option>курит</option>
+            <option>редко</option>
+            <option>бросает</option>
+        </select>
+     </div>
+     <div class="form-group">
+        <label for="drink">Oтношение к алкоголю  :</label>
+        <select id="drink" class="form-control">
+            <option>не важно</option>
+            <option>не пьет вообще</option>
+            <option>пьет в компаниях изредка</option>
+            <option>любит выпить</option>
+        </select>
+     </div>
+     <div class="form-group">
+        <label for="height">Рост:</label>
+        <input id="height" type="text" class="span2" value="24" data-slider-min="100" data-slider-max="300" data-slider-step="5" data-slider-value="[100,300]"/>
+     </div>
+     <div class="form-group">
+        <label for="weight">Вес:</label>
+        <input id="weight" type="text" class="span2" value="" data-slider-min="10" data-slider-max="200" data-slider-step="5" data-slider-value="[10,200]"/>
+     </div>
+     <div class="form-group">
+        <label for="eyes">Цвет глаз:</label>
+        <select id="eyes" class="form-control">
+            <option>не важно</option>
+            <option>голубые</option>
+            <option>синие</option>
+            <option>серые</option>
+            <option>зеленые</option>
+            <option>карие</option>
+            <option>черные</option>
+        </select>
+     </div>
+     <div class="form-group">
+        <label for="hair">Цвет волос:</label>
+        <select id="hair" class="form-control">
+            <option>не важно</option>
+            <option>светлые</option>
+            <option>темные</option>
+            <option>рыжие</option>
+        </select>
+     </div>
+     <div class="form-group">
+         <div class="loader"></div>
+         <button type="submit" id="seachbutton" class="btn btn-primary">Искать</button>
+     </div>
+  </td>
+  <style>
+   #results{
+      padding:25px;
+   }
+   .card{
+      width:30%;
+      max-height:500px;
+      margin:10px;
+      background-color:rgba(111,111,222,0.3);
+      display: inline-block;
+      border: 2px solid rgba(111,111,222,0.5);
+      border-radius: 20px;
+      overflow: auto;
+   }
+   .card:hover{
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+   }
+   .cardphoto img{
+      width:100%;
+   }
+   .userinfo{
+      padding: 15px;
+      padding-left: 20px;
+      word-wrap: break-word;
+   }
+   .rowname{
+      font-size: 15px;
+      font-weight: 600;
+   }
+   .rowinfo{
+      font-size: 12px;
+   }
+   .rowinfo span{
+      margin-right: 5px;
+   }
+   #pagepicker{
+      width: 150px;
+      height: 30px;
+      cursor: pointer;
+   }
+  </style>
+
+   <td id="results" style="display: inline-block;width:74%;text-align: start; vertical-align: top;">
+      <div id="pagepicker" style="display: block;position:absolute;margin-top:-25px;">
+         <span class="left glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+         <div style="display:inline-block">1</div>
+         <span class="right glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+     </div>
+     <div id="container">
+        Начните искать
+        <!-- <div class="card">
+          <div class="cardphoto">
+             <img class="userphoto" src="phototemp.jpg">
+          </div>
+          <div class="userinfo">
+             <div class="rowname">Pups</div>
+             <div class="rowinfo">Pups</div>
+          </div>
+       </div> -->
+     </div>
+   </td>
+</tr>
+</table>
+<!-- </body> -->
+ </div>
+ </section>
+ <?if(!$HIDE_CLEFTER$)?>
+ <aside>
+ $GLOBAL_CLEFTER$
+ </aside>
+ <?endif?>
+
+ <div class="clearfix"></div>
+ </div>
+ <!-- </middle> -->
+
+ $GLOBAL_BFOOTER$$POWERED_BY$
+</div>
+
+</body>
+
+</html>
